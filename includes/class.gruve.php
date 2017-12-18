@@ -93,23 +93,23 @@ class Gruve {
             $last_switch = (empty($this->settings->get('last_switch')) ? 0 : $this->settings->get('last_switch'));
             $time_diff = time() - $last_switch;
             if ($time_diff < $duration) {
-                $message = 'Mining ' . $current_coin['tag'] . ' for ' . $this->human_time($time_diff) . ' of at least ' . $this->human_time($duration) . '.';
-                $this->log($message);
+                // $message = 'Mining ' . $current_coin['tag'] . ' for ' . $this->human_time($time_diff) . ' of at least ' . $this->human_time($duration) . '.';
+                // $this->log($message);
                 $this->settings->set('is_locked', 0);
                 return false;
             } else {
                 $most_profitable_coin = $this->get_most_profitable_coin();
                 if ($current_coin['tag'] == $most_profitable_coin['tag']) {
-                    $message = 'Mined ' . $current_coin['tag'] . ' for ' . $this->human_time($time_diff) . ' so far, still most profitable.';
-                    $this->log($message);
+                    // $message = 'Mined ' . $current_coin['tag'] . ' for ' . $this->human_time($time_diff) . ' so far, still most profitable.';
+                    // $this->log($message);
                     $this->settings->set('is_locked', 0);
                     return false;
                 } else {
                     $profitability_threshold = $this->settings->get('switch_threshold');
                     $profitability_diff = $most_profitable_coin['profitability'] - $current_coin['profitability'];
                     if ($profitability_diff < $profitability_threshold) {
-                        $message = 'Mined ' . $current_coin['tag'] . ' for ' . $this->human_time($time_diff) . ' so far, ' . $most_profitable_coin['tag'] . ' is now ' . $profitability_diff . '% more profitable at ' . $most_profitable_coin['profitability'] . '%.';
-                        $this->log($message);
+                        // $message = 'Mined ' . $current_coin['tag'] . ' for ' . $this->human_time($time_diff) . ' so far, ' . $most_profitable_coin['tag'] . ' is now ' . $profitability_diff . '% more profitable at ' . $most_profitable_coin['profitability'] . '%.';
+                        // $this->log($message);
                         $this->settings->set('is_locked', 0);
                         return false;
                     } else {
