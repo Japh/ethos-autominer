@@ -1,33 +1,80 @@
 {
-  "settings": {
-    "whattomine_url": "http://whattomine.com/coins.json",
-    "switch_threshold": 10,
-    "mine_duration": 1,
-    "pushbullet": {
-      "token": ""
+  "global": {
+    "custompanel": "xxxxxxxxxxxx",
+    "flags": "--cl-global-work 8192 --farm-recheck 200",
+    "stratumproxy": "enabled",
+    "autoreboot": 5,
+    "maxgputemp": 85,
+    "globalfan": 85,
+    "globalpowertune": 125,
+    "globalmem": "+400",
+    "globalcore": "+150",
+    "proxywallet": "xxxxxxxxxxxx",
+    "password": "x"
+  },
+  "algorithms": {
+    "equihash": {
+      "globalminer": "dstm-zcash",
+      "proxypool1": "asia.equihash-hub.miningpoolhub.com:12023",
+      "loc": "xxxxxx equihash"
     },
-    "pushover": {
-      "user": "",
-      "token": ""
+    "neoscrypt": {
+      "globalminer": "ccminer",
+      "ccminer": "=flags -a neoscrypt",
+      "proxypool1": "hub.miningpoolhub.com:12012",
+      "loc": "xxxxxx neoscrypt"
+    },
+    "cryptonight": {
+      "globalminer": "ccminer",
+      "ccminer": "=flags -a cryptonight",
+      "proxypool1": "asia.cryptonight-hub.miningpoolhub.com:12024",
+      "loc": "xxxxxx cryptonight"
+    },
+    "lyra2re2": {
+      "globalminer": "ccminer",
+      "ccminer": "=flags -a lyra2v2 -i 22",
+      "proxypool1": "hub.miningpoolhub.com:12018",
+      "globalmem": "+0",
+      "globalcore": "+100",
+      "loc": "xxxxxx lyra2re2"
+    },
+    "ethash": {
+      "globalminer": "claymore",
+      "proxypool1": "asia.ethash-hub.miningpoolhub.com:12020",
+      "proxypool2": "us-east.ethash-hub.miningpoolhub.com:12020",
+      "globalpowertune": "110",
+      "dualminer": "enabled",
+      "dualminer-coin": "sia",
+      "dualminer-pool": "hub.miningpoolhub.com:20550",
+      "dualminer-wallet": "xxxxxxxxxxxx",
+      "loc": "xxxxxx ethash"
     }
   },
-  "configs": [
-    {
-      "coin": "ETH",
-      "config": "eth.conf",
-      "mine_duration": 2
+  "coins": {
+    "ETH": {
+      "mine_duration": 7200
     },
-    {
-      "coin": "BTG",
-      "config": "btg.conf"
+    "BTG": {},
+    "ZEC": {},
+    "ZEN": {},
+    "ZCL": {},
+    "XMR": {},
+    "ETN": {
+      "proxypool1": "etn-stratum.suprnova.cc:8875",
+      "loc": "xxxxxx electroneum"
     },
-    {
-      "coin": "ZEC",
-      "config": "zec.conf"
+    "FTC": {},
+    "MONA": {},
+    "VTC": {},
+    "TZC": {
+      "proxypool1": "stratum.aikapool.com:7903",
+      "loc": "xxxxxx trezar",
+      "mine_duration": 7200
     },
-    {
-      "coin": "MONA",
-      "config": "mona.conf"
+    "VIVO": {
+      "proxypool1": "stratum.aikapool.com:7905",
+      "loc": "xxxxxx vivo",
+      "mine_duration": 7200
     }
-  ]
+  }
 }
